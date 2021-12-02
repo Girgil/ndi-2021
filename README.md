@@ -6,7 +6,11 @@
 ```bash
 python3 -m venv venv
 ```
-(ou python si votre python3 est python)
+(ou python si votre python3 est python)\
+ou\
+```
+virtualenv -p python3 venv
+```
 
 ## Activation du venv
 ### Linux:
