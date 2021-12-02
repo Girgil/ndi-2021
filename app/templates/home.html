@@ -10,7 +10,16 @@
 </head>
 
 <body>
-    <h1>Hello</h1>
+<header>
+    <div class="logo_header">
+        <img alt="logo_corsaires_dunkerquois" src="../static/images/corsaires_dunkerquois.jpg">
+        <img alt="logo_sauveteurs_dunkerquois" src="../static/images/sauveteurs_dunkerquois.png">
+    </div>
+</header>
+<h1>{{ title }}</h1>
+
+{% block content %}{% endblock %}
+
 </body>
 
 </html>
