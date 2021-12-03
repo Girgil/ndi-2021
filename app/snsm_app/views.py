@@ -1,7 +1,7 @@
 from flask import render_template
 from flask.helpers import url_for
 from .models.forms.auth import LoginForm, RegisterForm
-from .models.database import get_sauveteurs, insert_user
+from .models.database import get_sauveteurs, insert_user, get_bateaux
 
 from flask import Blueprint, render_template, redirect, request, current_app
 
@@ -44,6 +44,18 @@ def logout():
 
 @index.route("/bateaux")
 def bateaux():
+    s = current_app.config['SESSION']
+    batals = get_bateaux(s)
+    s.remove()
+    return render_template(
+        "corps_pages.html",
+        title="Bateaux",
+        bateaux=batals
+    )
+
+
+@index.route("/bateau/<int:id>")
+def bateau(id):
     return render_template(
         "bateau.html",
         title="Bateaux - X",
@@ -70,12 +82,6 @@ def sauveteurs():
         title="Les sauveteurs",
         sauveteurs=sauveteurs
     )
-
-
-@index.route("/bateau/<int:id>")
-def bateau(id):
-    return "l"
-
 
 @index.route("/personne/<int:id>")
 def personne(id):

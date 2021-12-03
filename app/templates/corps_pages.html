@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+{% block content %}
+
+<ul>
+  {% for batal in bateaux %}
+  <li><a href="{{ url_for('index.bateaux') }}">batal</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
