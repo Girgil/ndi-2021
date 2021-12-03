@@ -30,8 +30,7 @@ class Bateau:
 
 
 def get_sauveteurs(conn: Connection) -> List[Sauveteur]:
-    c = conn.raw_connection().cursor()
-    c.execute("SELECT * FROM SAUVETEUR NATURAL JOIN PERSONNE")
+    c = conn.execute("SELECT * FROM SAUVETEUR NATURAL JOIN PERSONNE")
     personnes = list()
     for row in c:
         personnes.append(Sauveteur(
@@ -51,7 +50,7 @@ def get_sauveteurs(conn: Connection) -> List[Sauveteur]:
 
 def get_bateaux(conn):
     bateaux = list()
-    data = conn.raw_connection().execute("select * from bateau")
+    data = conn.execute("select * from bateau")
     for raw in data:
         bateaux.append(Bateau(raw[0], raw[1], raw[2]))
     return bateaux
