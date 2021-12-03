@@ -13,3 +13,8 @@ div.bateau_legende_img>div{
   width: 95%;
   padding: 0;
 }
+
+div>div>p {
+  text-align: center;
+  font-size: 140%;
+}
