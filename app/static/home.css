@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 header {
     background-color: black;
     padding: 1em;
@@ -22,3 +23,25 @@ nav {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+=======
+div.bateau_legende_img>div{
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 100%;
+  border: thin red solid;
+
+}
+
+.bateau_legende_img{
+  position: relative;
+  border: thin blue solid;
+  width: 95%;
+  padding: 0;
+}
+
+div>div>p {
+  text-align: center;
+  font-size: 140%;
+}
+>>>>>>> hayzival/main
