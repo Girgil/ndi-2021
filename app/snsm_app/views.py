@@ -1,6 +1,5 @@
 from flask import render_template
 from .models.forms.auth import LoginForm
-from .models.database import db
 
 from flask import Blueprint, render_template, redirect, request
 
