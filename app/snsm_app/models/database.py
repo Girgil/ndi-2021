@@ -54,3 +54,8 @@ def get_bateaux(conn):
     for raw in data:
         bateaux.append(Bateau(raw[0], raw[1], raw[2]))
     return bateaux
+
+
+def insert_user(conn, username, email, password):
+    print(conn.execute("INSERT INTO UTILISATEUR (username, passwordUser, emailUser) VALUES(:username, :password, :email)",
+                 {"username": username, "password": password, "email": email}).fetchone())

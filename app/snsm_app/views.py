@@ -1,6 +1,7 @@
 from flask import render_template
-from .models.forms.auth import LoginForm
-from .models.database import get_sauveteurs
+from flask.helpers import url_for
+from .models.forms.auth import LoginForm, RegisterForm
+from .models.database import get_sauveteurs, insert_user
 
 from flask import Blueprint, render_template, redirect, request, current_app
 
@@ -20,10 +21,20 @@ def hello():
 def login():
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
-        content = hashlib.sha256(form.password.encode()).digest()
-        print(content)
         return redirect('/')
     return render_template('login.html', form=form, title="Se connecter")
+
+
+@index.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegisterForm(request.form)
+    if request.method == 'POST' and form.validate():
+        content = hashlib.sha256(form.password.data.encode()).hexdigest()
+        s = current_app.config['SESSION']
+        insert_user(s, form.username.data, form.email.data, content)
+        s.remove()
+        return redirect(url_for("index.login"))
+    return render_template('register.html', form=form, title="S'inscrire")
 
 
 @index.route("/logout")
@@ -57,7 +68,7 @@ def sauveteurs():
     return render_template(
         "sauveteurs.html",
         title="Les sauveteurs",
-        sauveteurs = sauveteurs
+        sauveteurs=sauveteurs
     )
 
 
