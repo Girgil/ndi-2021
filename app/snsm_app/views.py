@@ -46,7 +46,7 @@ def logout():
 def bateaux():
     return render_template(
         "bateau.html",
-        title="bonjour à tous les amis 2",
+        title="Bateaux - X",
         personnage_pas_important={
             "Patron": "NomPatron", "Sous-Patron": "Nom du Sous-patron", "armement": ["Nom1", "Nom2", "Nom3"]},
         DATE="01/01/01",

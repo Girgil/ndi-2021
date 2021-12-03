@@ -3,7 +3,7 @@
 body {
     font-family: 'Oxygen', sans-serif;;
 }
-a {
+li > a {
     text-decoration: None;
     color: black;
 }
@@ -27,6 +27,7 @@ header > * {
     font-size: xx-large;
     margin-left: 5vw;
     text-shadow: #2f2f2f 0.2em 0.2em 0.3em;
+    text-decoration: none;
 }
 .logo_entete, footer > img {
     width: 7vw;
@@ -41,11 +42,13 @@ header > * {
 }
 li {
     list-style-type: none;
+}
+nav > ul > li, footer li {
     display: inline-block;
     margin: 0 1em;
     transition : ease-in-out 0.3s;
 }
-li:hover {
+nav > ul > li:hover, footer li:hover {
     transform: scale(1.2);
 }
 nav, footer {
@@ -55,27 +58,6 @@ nav, footer {
     padding: 1em 0;
     background-color: #0096c7;
 }
-div.bateau_legende_img>div{
-  position: absolute;
-  top: 80%;
-  left: 0;
-  width: 100%;
-  border: thin red solid;
-
-}
-
-.bateau_legende_img{
-  position: relative;
-  border: thin blue solid;
-  width: 95%;
-  padding: 0;
-}
-
-div>div>p {
-  text-align: center;
-  font-size: 140%;
-}
-
 nav {
     border-bottom: thick solid #1a759f;
     justify-content: space-between;
@@ -106,12 +88,39 @@ footer {
     justify-content: start;
 }
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     vertical-align: middle;
 }
 footer li {
     padding-top: 10%;
+}
+/* bateau */
+.sec_bateau {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin:auto;
+}
+.bateau_legende_img{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.bateau_legende_img > div{
+    position: absolute;
+    width: 80%;
+    top: 75%;
+    box-sizing: content-box;
+    overflow: hidden;
+    text-align: start;
+    color:white;
+    background-color:  rgba(0, 0, 0, 0.6);
+}
+.bateau_legende_img > div > h2 {
+    margin-left: 2em;
+}
+.infos_bateaux > ul > li > * {
+    display: inline-block;
+}
+.infos_bateaux h4 {
+    margin-bottom: 0;
 }
