@@ -8,6 +8,13 @@ import hashlib
 index = Blueprint('index', __name__, url_prefix="/")
 
 
+@index.route("/")
+def hello():
+    return render_template(
+        "home.html",
+        title="bonjour à tous les amis 2")
+
+
 @index.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm(request.form)
