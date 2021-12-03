@@ -98,3 +98,17 @@ CREATE TABLE "MEDAILLE" (
   "nommedaille" VARCHAR(42),
   PRIMARY KEY ("idmedaille")
 );
+
+CREATE TABLE "UTILISATEUR"(
+  "idUser" INTEGER,
+  "username" TEXT,
+  "passwordUser" BLOB,
+  "emailUser" TEXT,
+  "roleUtilisateur" TEXT CHECK("roleUtilisateur" IN ('U','A'))
+);
+
+CREATE TABLE "SESSION"(
+  "tokenSession" TEXT NOT NULL,
+  "idUser" TEXT NOT NULL,
+  FOREIGN KEY(idUser) REFERENCES UTILISATEUR(idUser)
+);

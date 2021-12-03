@@ -1,8 +1,9 @@
 from flask import render_template
 from .models.forms.auth import LoginForm
-from .models.database import db
 
 from flask import Blueprint, render_template, redirect, request
+
+import hashlib
 
 index = Blueprint('index', __name__, url_prefix="/")
 
@@ -11,7 +12,8 @@ index = Blueprint('index', __name__, url_prefix="/")
 def login():
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
-        # TODO
+        content = hashlib.sha256(form.password.encode()).digest()
+        print(content)
         return redirect('/')
     return render_template('login.html', form=form, title="Se connecter")
 
