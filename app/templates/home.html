@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
+    <!-- TODO OPTIMISE -->
 </head>
 
 <body>
-<header>
-    <div class="logo_header">
-        <img alt="logo_corsaires_dunkerquois" src="../static/images/corsaires_dunkerquois.jpg">
-        <img alt="logo_sauveteurs_dunkerquois" src="../static/images/sauveteurs_dunkerquois.png">
-    </div>
-</header>
-<h1>{{ title }}</h1>
-
-{% block content %}{% endblock %}
-
+    <header>
+        <div class="logo_header">
+            <img alt="logo_corsaires_dunkerquois"
+                src="{{ url_for('static', filename='images/corsaires_dunkerquois.jpg') }}">
+            <img alt="logo_sauveteurs_dunkerquois"
+                src="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
+        </div>
+    </header>
+    {% block content %}{% endblock %}
 </body>
 
 </html>

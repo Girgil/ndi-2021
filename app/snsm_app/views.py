@@ -10,8 +10,8 @@ def login():
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
         # TODO
-        return redirect(url_for('/'))
-    return render_template('login.html', form=form)
+        return redirect('/')
+    return render_template('login.html', form=form, title="Se connecter")
 
 
 
