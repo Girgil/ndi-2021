@@ -29,6 +29,7 @@ def login():
 def logout():
     return "TODO LOGOUT"
 
+
 @index.route("/bateaux")
 def bateaux():
     return render_template(
@@ -40,13 +41,20 @@ def bateaux():
         STATS_VIE={"mort": 2, "vivant": 3},
         NOM_BATEAU="LES TROIS SOEURS"
     )
+
+
 @index.route("/sauvetages")
 def sauvetages():
     return "TODO"
-    
+
+
 @index.route("/sauveteurs")
 def sauveteurs():
-    return "TODO"
+    return render_template(
+        "sauveteurs.html",
+        title="Les sauveteurs"
+    )
+
 
 @index.route("/bateau/<int:id>")
 def bateau(id):

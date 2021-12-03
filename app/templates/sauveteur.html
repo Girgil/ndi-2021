@@ -4,17 +4,18 @@
 <p class="Petites Infos">{{ desc }}</p>
 {% endfor %}
 <img alt="image_sauveur" src="{{ url_for('static', filename='images/Ficquet-Pierre-Portrait.png') }}">
-<img alt="image_sauveur" src="{{ url_for('static', filename='images/Decoration-Ordre-de-la-couronne-dAllemagne.png') }}">
+<img alt="image_sauveur"
+    src="{{ url_for('static', filename='images/Decoration-Ordre-de-la-couronne-dAllemagne.png') }}">
 <img alt="image_sauveur" src="{{ url_for('static', filename='images/Decoration-medaille-argent-brittanique.png') }}">
 <img alt="image_sauveur" src="{{ url_for('static', filename='images/Decoration-Legion-d-Honneur-1.png') }}">
 {% for x in names %}
-    <p>{{ x }}</p>
+<p>{{ x }}</p>
 {% endfor %}
 {% for (date,dico) in section1.items() %}
-    <h2>{{ date[0] }}</h2>
-    <p>{{ date[1] }}</p>
-    {% for prg in dico.values() %}
-        <p>{{ prg }}</p>
-    {% endfor %} 
+<h2>{{ date[0] }}</h2>
+<p>{{ date[1] }}</p>
+{% for prg in dico.values() %}
+<p>{{ prg }}</p>
+{% endfor %}
 {% endfor %}
 {% endblock %}
