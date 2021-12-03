@@ -27,9 +27,9 @@ header > * {
     margin-left: 5vw;
     text-shadow: #2f2f2f 0.2em 0.2em 0.3em;
 }
-.logo_entete {
+.logo_entete, footer > img {
     width: 7vw;
-    heght: auto;
+    height: auto;
     filter: drop-shadow(0 0 0.5em white);
     border-radius: 4vw;
     margin: 1vh 2vw;
@@ -46,24 +46,26 @@ li {
 }
 li:hover {
     transform: scale(1.2);
-
 }
-nav {
+nav, footer {
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 1em 0;
     background-color: #0096c7;
 }
-nav > ul {
+nav {
+    border-bottom: thick solid #1a759f;
+    justify-content: space-between;
+}
+nav > ul, footer > ul {
     margin: 0 2em;
 }
-nav a {
+nav a, footer a {
     font-weight: bold;
     cursor: pointer;
     transition: ease-in-out 0.3s;
 }
-nav a:hover {
+nav a:hover, footer a:hover {
     color:white;
 }
 .submit_form {
@@ -75,5 +77,18 @@ nav a:hover {
 }
 input[type=search] {
     padding: 0.3em;
-
+}
+footer {
+    border-top: thick solid #1a759f;
+    justify-content: start;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    vertical-align: middle;
+}
+footer li {
+    padding-top: 10%;
 }
