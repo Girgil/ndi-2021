@@ -1,33 +1,41 @@
 {% extends "home.html" %}
 {% block content %}
-
-<div class="bateau_legende_img">
-    <img src="../static/images/banniere-test.jpg" alt="banniere"/>
-    <div>
-        <p>Sauvetage du bateau {{NOM_BATEAU}}</p>
-    </div>
-</div>
-<ul>
-    <li>
-        <p>Patron du canot</p>
-        <p><a>{{personnage_pas_important['Patron']}}</a></p>
-    </li>
-    <li>
-        <p>Sous-patron</p>
-        <p><a>{{personnage_pas_important['Sous-Patron']}}</a></p>
-    </li>
-    <li>
-        <p>Armement</p>
-        {% for elem in personnage_pas_important['armement'] %}
-        <p><a>{{elem}}</a></p>
-        {% endfor %}
-    </li>
-</ul>
-<div>
-    <p>Date : {{DATE}}</p>
-    <p>Nombres de personnes décédés {{STATS_VIE['mort']}}, Nombres de personnes sauvés {{STATS_VIE['vivant']}}</p>
-</div>
-<article>
-    
-</article>
+<section class="sec_bateau">
+    <h1>{{ title }}</h1>
+        <div class="bateau_legende_img">
+            <img src="../static/images/banniere-test.jpg" alt="banniere"/>
+            <div>
+                <h2>Sauvetage du bateau {{NOM_BATEAU}}</h2>
+            </div>
+        </div>
+        <div class="infos_bateaux">
+            <ul>
+                <li>
+                    <h4>Patron du canot</h4><br>
+                    <p><a>{{personnage_pas_important['Patron']}}</a></p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h4>Sous-patron</h4><br>
+                    <p><a>{{personnage_pas_important['Sous-Patron']}}</a></p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h4>Armement</h4><br>
+                    {% for elem in personnage_pas_important['armement'] %}
+                    <p><a>{{elem}}</a></p>
+                    {% endfor %}
+                </li>
+            </ul>
+            </ul>
+            <ul>
+                <li>
+                    <h4>Date : {{DATE}}</h4><br>
+                    <p>Nombres de personnes décédés {{STATS_VIE['mort']}}, Nombres de personnes sauvés {{STATS_VIE['vivant']}}</p>
+                </li>
+            </ul>
+        </div>
+</section>
 {% endblock %}

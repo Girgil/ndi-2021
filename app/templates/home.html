@@ -14,11 +14,13 @@
 <body>
 <header>
     <div>
-        <img class="logo_entete" alt="logo_corsaires_dunkerquois" src="{{ url_for('static', filename='images/corsaires_dunkerquois.jpg') }}">
-        <img class="logo_entete" alt="logo_sauveteurs_dunkerquois" src="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
+        <form method="post" action="{{ url_for('index.hello') }}">
+            <input type="image" class="logo_entete" alt="logo_corsaires_dunkerquois" src="{{ url_for('static', filename='images/corsaires_dunkerquois.jpg') }}">
+            <input type="image" class="logo_entete" alt="logo_sauveteurs_dunkerquois" src="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
+        </form>
     </div>
     <div class="titre_site">
-        <h1 onClick="{{ url_for('index.hello') }}">Sauveteurs du Dunkerquois</h1>
+        <h1>Sauveteurs du Dunkerquois</h1>
         <h3>270 ans d'histoire</h3>
     </div>
 </header>
@@ -36,7 +38,6 @@
     </ul>
 </nav>
 <main>
-    <h1>{{ title }}</h1>
 
     {% block content %}{% endblock %}
 </main>
