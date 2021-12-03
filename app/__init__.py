@@ -30,5 +30,5 @@ def create_app():
     app.config['DB'] = create_engine(os.environ.get(
         'DATABASE_URL'), poolclass=StaticPool)
     session_factory = sessionmaker(bind=app.config['DB'])
-    app.config['SESSION'] = Session = scoped_session(session_factory)
+    app.config['SESSION'] = scoped_session(session_factory)
     return app
