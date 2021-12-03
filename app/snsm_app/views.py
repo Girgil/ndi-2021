@@ -5,6 +5,7 @@ from flask import Blueprint, render_template, redirect, request
 
 index = Blueprint('index', __name__, url_prefix="/")
 
+
 @index.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm(request.form)
@@ -24,3 +25,18 @@ def hello():
     return render_template(
         "personne.html",
         title="bonjour à tous les amis 2")
+
+
+@index.route("/bateau/<int:id>")
+def bateau(id):
+    return "<h1>%d</h1>" % id
+
+
+@index.route("/personne/<int:id>")
+def personne(id):
+    return "<h1>%d</h1>" % id
+
+
+@index.route("/sauvetage/<int:id>")
+def sauvetage(id):
+    return "<h1>%d</h1>" % id
