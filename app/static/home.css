@@ -1,24 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
+body {
+    font-family: 'Oxygen', sans-serif;;
+}
+a {
+    text-decoration: None;
+    color: black;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
 header {
-    background-color: black;
+    background: url("./images/dunkerque_header.png") no-repeat center;
+    background-size: cover;
     padding: 1em;
 }
 header:first-child {
     padding-left: 4vw;
 }
+header > * {
+    display: inline-block;
+}
+.titre_site {
+    color: white;
+    font-size: xx-large;
+    margin-left: 5vw;
+    text-shadow: #2f2f2f 0.2em 0.2em 0.3em;
+}
 .logo_entete {
     width: 7vw;
-    heght:auto;
+    heght: auto;
     filter: drop-shadow(0 0 0.5em white);
     border-radius: 4vw;
     margin: 1vh 2vw;
+    transition: 0.2s;
+}
+.logo_entete:hover {
+    transform: scale(1.2);
 }
 li {
     list-style-type: none;
     display: inline-block;
-    margin: 0 0.5em;
+    margin: 0 1em;
+    transition : ease-in-out 0.3s;
+}
+li:hover {
+    transform: scale(1.2);
+
 }
 nav {
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 1em 0;
+    background-color: #0096c7;
+}
+nav > ul {
+    margin: 0 2em;
+}
+nav a {
+    font-weight: bold;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+nav a:hover {
+    color:white;
+}
+.submit_form {
+    width: 1.5vw;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 1em;
+    margin-right: 3em;
+}
+input[type=search] {
+    padding: 0.3em;
+
 }

@@ -11,8 +11,14 @@
 
 <body>
 <header>
-    <img class="logo_entete" alt="logo_corsaires_dunkerquois" src="{{ url_for('static', filename='images/corsaires_dunkerquois.jpg') }}">
-    <img class="logo_entete" alt="logo_sauveteurs_dunkerquois" src="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
+    <div>
+        <img class="logo_entete" alt="logo_corsaires_dunkerquois" src="{{ url_for('static', filename='images/corsaires_dunkerquois.jpg') }}">
+        <img class="logo_entete" alt="logo_sauveteurs_dunkerquois" src="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
+    </div>
+    <div class="titre_site">
+        <h1>Sauveteurs du Dunkerquois</h1>
+        <h3>270 ans d'histoire</h3>
+    </div>
 </header>
 <nav>
     <ul>
@@ -23,6 +29,7 @@
     <ul>
         <form method="POST" action="/">
             <input type="search" />
+            <input class="submit_form" type="image" src="../static/images/loupe.png" alt="Submit Form" placeholder="Rechercher un bateau"/>
         </form>
     </ul>
 </nav>
@@ -32,5 +39,12 @@
     {% block content %}{% endblock %}
 </main>
 </body>
-
+<footer>
+    <img src="../static/images/logo_snsm.svg.png"/>
+    <ul>
+        <li><a href="/">Qui sommes-nous ?</a></li>
+        <li><a href="https://www.facebook.com/groups/938396409644949">Facebook</a></li>
+        <li><a href="https://twitter.com/@boutelierphili1">Twitter</a></li>
+    </ul>
+</footer>
 </html>
