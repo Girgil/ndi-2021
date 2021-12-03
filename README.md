@@ -37,5 +37,5 @@ FLASK_APP="app" DATABASE_URL="sqlite:///db.db" flask db create
 ```
 
 ```
-FLASK_APP="app" DATABASE_URL="sqlite:///db.db" flask run
+FLASK_APP="app" DATABASE_URL="sqlite:///db.db?check_same_thread=False" flask run
 ```
