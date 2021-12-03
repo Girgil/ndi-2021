@@ -100,7 +100,7 @@ CREATE TABLE "MEDAILLE" (
 );
 
 CREATE TABLE "UTILISATEUR"(
-  "idUser" INTEGER,
+  "idUser" INTEGER PRIMARY KEY NOT NULL,
   "username" TEXT,
   "passwordUser" BLOB,
   "emailUser" TEXT,
