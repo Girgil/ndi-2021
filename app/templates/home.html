@@ -12,15 +12,27 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo_header">
-            <img alt="logo_corsaires_dunkerquois"
-                src="{{ url_for('static', filename='images/corsaires_dunkerquois.jpg') }}">
-            <img alt="logo_sauveteurs_dunkerquois"
-                src="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
-        </div>
-    </header>
+<header>
+    <img class="logo_entete" alt="logo_corsaires_dunkerquois" src="{{ url_for('static', filename='images/corsaires_dunkerquois.jpg') }}">
+    <img class="logo_entete" alt="logo_sauveteurs_dunkerquois" src="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
+</header>
+<nav>
+    <ul>
+        <li><a href="/">Bateaux</a></li>
+        <li><a href="/">Sauvés</a></li>
+        <li><a href="/">Sauveteurs</a></li>
+    </ul>
+    <ul>
+        <form method="POST" action="/">
+            <input type="search" />
+        </form>
+    </ul>
+</nav>
+<main>
+    <h1>{{ title }}</h1>
+
     {% block content %}{% endblock %}
+</main>
 </body>
 
 </html>

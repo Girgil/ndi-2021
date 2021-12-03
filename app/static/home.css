@@ -1,0 +1,24 @@
+header {
+    background-color: black;
+    padding: 1em;
+}
+header:first-child {
+    padding-left: 4vw;
+}
+.logo_entete {
+    width: 7vw;
+    heght:auto;
+    filter: drop-shadow(0 0 0.5em white);
+    border-radius: 4vw;
+    margin: 1vh 2vw;
+}
+li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 0.5em;
+}
+nav {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
