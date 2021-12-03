@@ -74,7 +74,15 @@ def sauvetages():
 
 @index.route("/sauveteurs")
 def sauveteurs():
-    return "todo"
+    s = current_app.config['SESSION']
+    sauveteurs = get_sauveteurs(s)
+    s.remove()
+    return render_template(
+        "sauveteurs.html",
+        title="Les sauveteurs",
+        sauveteurs=sauveteurs
+    )
+
 
 
 @index.route("/sauveteur/<int:id>")
