@@ -1,10 +1,10 @@
-from flask import Blueprint
-from .models.database import db
+from flask import Blueprint, current_app
 
 bp = Blueprint('db', __name__)
 
 @bp.cli.command()
-def createDb():
+def create():
     '''Creates the tables'''
-    db.create_all()
-    db.session.commit()
+    with open("app/sql/creation.sql") as f:
+        file = f.read()
+        current_app.config['DB'].executescript(file)

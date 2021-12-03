@@ -5,12 +5,13 @@
 
 import os
 import sqlite3
+import traceback
 from flask import Flask
-from .snsm_app.views import index
-from .snsm_app.commands import bp
-from .snsm_app.models.database import Conn
-from .snsm_app.models import database
-
+try:
+    from .snsm_app.views import index
+    from .snsm_app.commands import bp
+except:
+    traceback.print_last()
 
 def create_app():
     """
@@ -20,7 +21,6 @@ def create_app():
 
     app.register_blueprint(index)
     app.register_blueprint(bp)
-    database.db = sqlite3.connect(os.environ.get(
+    app.config['DB'] = sqlite3.connect(os.environ.get(
         'DATABASE_URL'))
-
     return app
