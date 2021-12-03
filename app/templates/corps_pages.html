@@ -1,9 +1,11 @@
 {% extends "home.html" %}
 {% block content %}
-
+<section style="text-align: center; margin: 1em;">
+  <a href="https://fr.wikipedia.org/wiki/Station_spatiale_internationale#:~:text=La%20Station%20spatiale%20internationale%20est,environ%20420%20tonnes%20en%202019." target="_blank"><img class="logo_entete" src="{{ url_for('static', filename='images/iss.png') }}"/></a>
+</section>
 <ul>
   {% for batal in bateaux %}
-  <li><a href="{{ url_for('index.bateaux') }}">batal</a></li>
+  <li><a href="{{ url_for('index.bateau', id = batal.id) }}">{{ batal }}</a></li>
   {% endfor %}
 </ul>
 

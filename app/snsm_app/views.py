@@ -13,7 +13,7 @@ index = Blueprint('index', __name__, url_prefix="/")
 @index.route("/")
 def hello():
     return render_template(
-        "home.html",
+        "main.html",
         title="bonjour à tous les amis 2")
 
 
@@ -58,7 +58,7 @@ def bateaux():
 def bateau(id):
     return render_template(
         "bateau.html",
-        title="Bateaux - X",
+        title="Bateaux - %d" % id,
         personnage_pas_important={
             "Patron": "NomPatron", "Sous-Patron": "Nom du Sous-patron", "armement": ["Nom1", "Nom2", "Nom3"]},
         DATE="01/01/01",
@@ -74,6 +74,11 @@ def sauvetages():
 
 @index.route("/sauveteurs")
 def sauveteurs():
+    return "todo"
+
+
+@index.route("/sauveteur/<int:id>")
+def sauveteur(id):
     s = current_app.config['SESSION']
     sauveteurs = get_sauveteurs(s)
     s.remove()
