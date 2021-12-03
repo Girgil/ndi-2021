@@ -2,8 +2,12 @@
     Permet de créer l'application.
 """
 
-from flask import Flask, render_template
+
+import os
+from flask import Flask
 from .snsm_app.views import index
+from .snsm_app.commands import bp
+from .snsm_app.models.database import db
 
 
 def create_app():
@@ -12,5 +16,11 @@ def create_app():
     """
     app = Flask(__name__)
 
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+        'SQLALCHEMY_DATABASE_URL')
+
     app.register_blueprint(index)
+    app.register_blueprint(bp)
+    db.init_app(app)
+
     return app

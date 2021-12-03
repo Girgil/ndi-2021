@@ -1,7 +1,7 @@
 from flask import render_template
 from .models.forms.auth import LoginForm
 
-from flask import current_app, Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, request
 
 index = Blueprint('index', __name__, url_prefix="/")
 
@@ -14,11 +14,9 @@ def login():
     return render_template('login.html', form=form, title="Se connecter")
 
 
-
 @index.route("/logout")
 def logout():
     return "TODO LOGOUT"
-
 
 
 @index.route("/")
