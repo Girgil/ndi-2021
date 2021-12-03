@@ -73,7 +73,7 @@ nav a, footer a {
 nav a:hover, footer a:hover {
     color:white;
 }
-.submit_form {
+.submit_form, .fusee {
     width: 1.5vw;
     height: auto;
     vertical-align: middle;
@@ -123,4 +123,12 @@ footer li {
 }
 .infos_bateaux h4 {
     margin-bottom: 0;
+}
+.div_fusee {
+    border-radius: 15vw;
+    background-color: #1a759f;
+    width: 3vw;
+    margin: 1em;
+    text-align: center;
+    padding: 1em;
 }

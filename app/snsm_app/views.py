@@ -1,7 +1,7 @@
 from flask import render_template
 from flask.helpers import url_for
 from .models.forms.auth import LoginForm, RegisterForm
-from .models.database import get_sauveteurs, insert_user
+from .models.database import get_sauveteurs, insert_user, get_bateaux
 
 from flask import Blueprint, render_template, redirect, request, current_app
 
@@ -13,7 +13,7 @@ index = Blueprint('index', __name__, url_prefix="/")
 @index.route("/")
 def hello():
     return render_template(
-        "home.html",
+        "main.html",
         title="bonjour à tous les amis 2")
 
 
@@ -44,9 +44,21 @@ def logout():
 
 @index.route("/bateaux")
 def bateaux():
+    s = current_app.config['SESSION']
+    batals = get_bateaux(s)
+    s.remove()
+    return render_template(
+        "corps_pages.html",
+        title="Bateaux",
+        bateaux=batals
+    )
+
+
+@index.route("/bateau/<int:id>")
+def bateau(id):
     return render_template(
         "bateau.html",
-        title="Bateaux - X",
+        title="Bateaux - %d" % id,
         personnage_pas_important={
             "Patron": "NomPatron", "Sous-Patron": "Nom du Sous-patron", "armement": ["Nom1", "Nom2", "Nom3"]},
         DATE="01/01/01",
@@ -62,6 +74,11 @@ def sauvetages():
 
 @index.route("/sauveteurs")
 def sauveteurs():
+    return "todo"
+
+
+@index.route("/sauveteur/<int:id>")
+def sauveteur(id):
     s = current_app.config['SESSION']
     sauveteurs = get_sauveteurs(s)
     s.remove()
@@ -70,12 +87,6 @@ def sauveteurs():
         title="Les sauveteurs",
         sauveteurs=sauveteurs
     )
-
-
-@index.route("/bateau/<int:id>")
-def bateau(id):
-    return "l"
-
 
 @index.route("/personne/<int:id>")
 def personne(id):

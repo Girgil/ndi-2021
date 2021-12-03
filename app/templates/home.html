@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/THOMAS.jpg') }}">
     <!-- TODO OPTIMISE -->
 </head>
 
 <body>
-<header>
+<header id="haut">
     <div>
-        <form method="post" action="{{ url_for('index.hello') }}">
+        <form method="get" action="{{ url_for('index.hello') }}">
             <input type="image" class="logo_entete" alt="logo_corsaires_dunkerquois" src="{{ url_for('static', filename='images/corsaires_dunkerquois.jpg') }}">
             <input type="image" class="logo_entete" alt="logo_sauveteurs_dunkerquois" src="{{ url_for('static', filename='images/sauveteurs_dunkerquois.png') }}">
         </form>
@@ -31,15 +31,15 @@
         <li><a href="{{ url_for('index.sauveteurs') }}">Sauveteurs</a></li>
     </ul>
     <ul>
-        <form method="GET" action="/recherche">
+        <form method="GET" action="https://fr.wikipedia.org/wiki/Thomas_Pesquet">
             <input type="search" placeholder="Rechercher un bateau, sauveteur ou rescapé"/>
             <input class="submit_form" type="image" src="../static/images/loupe.png" alt="Submit Form" />
         </form>
     </ul>
 </nav>
 <main>
-
     {% block content %}{% endblock %}
+    <div class="div_fusee"><a href="#haut"><img class="fusee" src="{{ url_for('static', filename='images/fusee.png') }}"/></a></div>
 </main>
 </body>
 <footer>
