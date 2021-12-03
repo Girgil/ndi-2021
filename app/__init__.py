@@ -7,11 +7,14 @@ import os
 import sqlite3
 import traceback
 from flask import Flask
+from sqlalchemy.pool import StaticPool
+from sqlalchemy import create_engine
 try:
     from .snsm_app.views import index
     from .snsm_app.commands import bp
 except:
     traceback.print_last()
+
 
 def create_app():
     """
@@ -21,6 +24,6 @@ def create_app():
 
     app.register_blueprint(index)
     app.register_blueprint(bp)
-    app.config['DB'] = sqlite3.connect(os.environ.get(
-        'DATABASE_URL'))
+    app.config['DB'] = create_engine(os.environ.get(
+        'DATABASE_URL'), poolclass=StaticPool)
     return app

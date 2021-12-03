@@ -1,7 +1,8 @@
 from flask import render_template
 from .models.forms.auth import LoginForm
+from .models.database import get_sauveteurs
 
-from flask import Blueprint, render_template, redirect, request
+from flask import Blueprint, render_template, redirect, request, current_app
 
 import hashlib
 
@@ -52,7 +53,8 @@ def sauvetages():
 def sauveteurs():
     return render_template(
         "sauveteurs.html",
-        title="Les sauveteurs"
+        title="Les sauveteurs",
+        sauveteurs = get_sauveteurs(current_app.config["DB"])
     )
 
 
