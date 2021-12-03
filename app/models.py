@@ -1,3 +1,4 @@
+from sqlalchemy.orm import backref
 from .app import db
 
 class Personne(db.Model):
@@ -22,10 +23,11 @@ class Sauveteur(db.Model):
 
 class Equipage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    idSauveteur = db.Column(db.Integer, db.ForeignKey("sauveteur.id"))
 
 class Appartenir(db.Model):
-    idPersonne = db.Column(db.Integer, db.ForeignKney(""), primary_key=True)
+    idSauveteur = db.Column(db.Integer, db.ForeignKey("sauveteur.id") , primary_key=True)
+    sauveteur = db.Column("Equipage", backref = db.backref("books"), lazy="dynamic"),  
+
 
     
 
