@@ -52,7 +52,26 @@ def sauvetages():
 def sauveteurs():
     return render_template(
         "sauveteurs.html",
-        title="Les sauveteurs"
+        title = "bonjour à tous les amis 2",
+        pr = ["j'écris de la merde c'est incroyable mais au moins je sais faire une boucle for wow trop bien","Oui les amis c'est moi"],
+        names = ["Je suis le paragraphe inutile","Je suis le paragraphe inutile","Je suis le paragraphe inutile","Je suis le paragraphe inutile"],
+        section1 = {
+            ("1950","19/01")  :
+                {"description":"Sauvetage de la goélette – PHENIX – Equipage sauvé",
+                 "Recompense":"Médaille d’honneur de 1°classe Or Ministère de la marine",
+                 "Autres":"Ceci est un truc incroyable"
+                 },
+            ("1950","18/01")  :
+                {"description":"Sauvetage de la goélette – PHENIX – Equipage sauvé",
+                 "Recompense":"Médaille d’honneur de 1°classe Or Ministère de la marine",
+                 "Autres":"Ceci est un truc incroyable"
+                 },
+            ("1950","17/01")  :
+                {"description":"Sauvetage de la goélette – PHENIX – Equipage sauvé",
+                 "Recompense":"Médaille d’honneur de 1°classe Or Ministère de la marine",
+                 "Autres":"Ceci est un truc incroyable"
+                 }
+        }
     )
 
 
