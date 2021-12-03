@@ -29,7 +29,7 @@
         <li><a href="{{ url_for('index.sauveteurs') }}">Sauveteurs</a></li>
     </ul>
     <ul>
-        <form method="POST" action="/">
+        <form method="GET" action="/recherche">
             <input type="search" placeholder="Rechercher un bateau, sauveteur ou rescapé"/>
             <input class="submit_form" type="image" src="../static/images/loupe.png" alt="Submit Form" />
         </form>

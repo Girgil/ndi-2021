@@ -51,10 +51,13 @@ def sauvetages():
 
 @index.route("/sauveteurs")
 def sauveteurs():
+    s = current_app.config['SESSION']()
+    sauveteurs = get_sauveteurs(s)
+    s.close()
     return render_template(
         "sauveteurs.html",
         title="Les sauveteurs",
-        sauveteurs = get_sauveteurs(current_app.config["DB"])
+        sauveteurs = sauveteurs
     )
 
 
