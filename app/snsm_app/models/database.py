@@ -57,5 +57,5 @@ def get_bateaux(conn):
 
 
 def insert_user(conn, username, email, password):
-    print(conn.execute("INSERT INTO UTILISATEUR (username, passwordUser, emailUser) VALUES(:username, :password, :email)",
-                 {"username": username, "password": password, "email": email}).fetchone())
+    print(conn.execute("INSERT INTO UTILISATEUR (username, passwordUser, emailUser, roleUtilisateur) VALUES(:username, :password, :email, :role)",
+                 {"username": username, "password": password, "email": email, "role": "U"}).fetchone())
