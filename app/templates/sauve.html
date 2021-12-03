@@ -1,0 +1,12 @@
+{% extends "home.html" %}
+{% block content %} 
+<section>
+    {%for elem in desc%}
+    <p>{{ elem }}</p>
+    {% endfor%}
+    <img src="{{ url_for('static', filename='') }}" alt="image de la personne sauve">
+</section>
+<section>
+    textaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+</section>
+{% endblock %}
