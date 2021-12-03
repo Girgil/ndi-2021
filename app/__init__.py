@@ -28,7 +28,7 @@ def create_app():
     app.register_blueprint(bp)
 
     app.config['DB'] = create_engine(os.environ.get(
-        'DATABASE_URL'), poolclass=StaticPool)
+        'DATABASE_URL'), poolclass=StaticPool, echo = True)
     session_factory = sessionmaker(bind=app.config['DB'])
     app.config['SESSION'] = scoped_session(session_factory)
     return app
