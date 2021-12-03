@@ -4,10 +4,12 @@
 
 
 import os
+import sqlite3
 from flask import Flask
 from .snsm_app.views import index
 from .snsm_app.commands import bp
-from .snsm_app.models.database import db
+from .snsm_app.models.database import Conn
+from .snsm_app.models import database
 
 
 def create_app():
@@ -16,11 +18,9 @@ def create_app():
     """
     app = Flask(__name__)
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
-        'SQLALCHEMY_DATABASE_URL')
-
     app.register_blueprint(index)
     app.register_blueprint(bp)
-    db.init_app(app)
+    database.db = sqlite3.connect(os.environ.get(
+        'DATABASE_URL'))
 
     return app
