@@ -28,3 +28,14 @@ cd ../..
 ```bash
 pip3 install -r requirements.txt
 ```
+
+# Lancer:
+## Linux :
+### Créer la database
+``̀ 
+FLASK_APP="app" DATABASE_URL="sqlite:///db.db" flask db create
+```
+
+```
+FLASK_APP="app" DATABASE_URL="sqlite:///db.db" flask run
+```
